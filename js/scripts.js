@@ -1,35 +1,32 @@
-var ouncesToMililiers = function(ounces1) {
-  return ounces1 * 29.5735;
+var ouncesToMililiers = function(ounces) {
+  return ounces * 29.5735;
 };
 
-var cupsToGrams = function(cups1) {
-  return cups1 * 128;
+var cupsToGrams = function(cups) {
+  return cups * 128;
 };
 
-var tablespoonsToTeaspoons = function(tablespoon1) {
-  return tablespoon1 * 3;
+var tablespoonsToTeaspoons = function(tablespoon) {
+  return tablespoon * 3;
 };
 
 $(document).ready(function() {
-  $("form#add").submit(function(event) {
+  $("form#ouncesToMililiters").submit(function(event) {
+    var ounces = parseInt($("#ounces1").val());
+    var result = ouncesToMililiers(ounces);
+    $("#output").text(result);
     event.preventDefault();
-    var number1 = parseInt($("#add1").val());
-    var number2 = parseInt($("#add2").val());
-    var result = add(number1, number2);
+  });
+  $("form#cupsToGrams").submit(function(event) {
+    event.preventDefault();
+    var cups = parseInt($("#cups1").val());
+    var result = cupsToGrams(cups);
     $("#output").text(result);
   });
-  $("form#subtract").submit(function(event) {
+  $("form#tablespoonsToTeaspoons").submit(function(event) {
     event.preventDefault();
-    var number1 = parseInt($("#subtract1").val());
-    var number2 = parseInt($("#subtract2").val());
-    var result = subtract(number1, number2);
-    $("#output").text(result);
-  });
-  $("form#multiply").submit(function(event) {
-    event.preventDefault();
-    var number1 = parseInt($("#multiply1").val());
-    var number2 = parseInt($("#multiply2").val());
-    var result = multiply(number1, number2);
+    var tablespoons = parseInt($("#tablespoon1").val());
+    var result = tablespoonsToTeaspoons(tablespoons);
     $("#output").text(result);
   });
 });
